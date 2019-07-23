@@ -1,14 +1,13 @@
 def is_unique(input):    
-    suma=0
-    for i in input.replace(" ",""):       
-        for j in input.replace(" ",""):
-            if(i==j):
-                suma+=1
-                if(suma>1):         
-                   return "No"       
-        suma=0   
-    return  "Yes"
+    characters=[False for i in range(128)]
+    input=input.replace(" ","")
+    for i in input:
+        if(characters[ord(i)]==True):
+            print(i)
+            return "No"
+        characters[ord(i)]=True
+    return "Si"
 
-input = "This is a test string"
-a=is_unique(input)
-print(a)
+input = "I am wonderful"
+response=is_unique(input)
+print(response)
